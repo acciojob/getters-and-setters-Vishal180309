@@ -1,56 +1,46 @@
 //complete this code
-class Person {
-    constructor(name, age) {
+class Person{
+    constructor(name,age){
         this._name = name;
         this._age = age;
     }
 
-    get name() {
+    get name(){
         return this._name;
     }
-
-    set age(age) {
-        this._age = age;
+    
+    set age(p_age){
+        this._age = p_age;
     }
-
-    get age() {
-        return this._age;
+}
+class Student extends Person{
+    study(){
+        console.log(`${this._name} is studying`);
     }
 }
 
-class Student extends Person {
-    constructor(name, age) {
-        super(name, age);
-    }
-
-    study() {
-        console.log(`${this.name} is studying`);
+class Teacher extends Person{
+    teach(){
+        console.log(`${this._name} is teaching`);
     }
 }
+// // testing
+// // Creating a Person instance
+// const person = new Person("John", 25);
+// console.log(person._name);  // Output: John
 
-class Teacher extends Person {
-    constructor(name, age) {
-        super(name, age);
-    }
+// person._age = 30;  // Using the setter to change the age
+// console.log(person._age);  // Output: 30
 
-    teach() {
-        console.log(`${this.name} is teaching`);
-    }
-}
+// // Creating a Student instance
+// const student = new Student("Alice", 22);
+// student.study();  // Output: Alice is studying
 
-document.getElementById('create-person-button').addEventListener('click', function() {
-    const person = new Person('John Doe', 30);
-    console.log(person.name);
-    person.age = 31;
-    console.log(person.age);
-});
+// // Creating a Teacher instance
+// const teacher = new Teacher("Bob", 40);
+// teacher.teach();  // Output: Bob is teaching
 
-document.getElementById('create-student-button').addEventListener('click', function() {
-    const student = new Student('Jane Doe', 20);
-    student.study();
-});
-
-document.getElementById('create-teacher-button').addEventListener('click', function() {
-    const teacher = new Teacher('Bob Smith', 40);
-    teacher.teach();
-});
+// Do not change the code below this line
+window.Person = Person;
+window.Student = Student;
+window.Teacher = Teacher;
